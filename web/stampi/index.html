@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="theme-color" content="#102935">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="../shared/brand/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../shared/brand/favicon-32.png">
+<link rel="apple-touch-icon" href="../shared/brand/icone/stampi-apple-touch.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Stampi">
+<meta name="application-name" content="Stampi">
+<title>Gestione Stampi · Officine Demo</title>
+<link rel="stylesheet" href="css/stampi.css">
+</head>
+<body class="logged-out">
+
+<div id="login">
+  <form class="login-card" onsubmit="doLogin(event)">
+    <div class="login-logo">
+      <img src="../shared/brand/logo-orizzontale-scuro.png" alt="Officine Demo" width="240" height="72">
+    </div>
+    <h1>Gestione Stampi</h1>
+    <p class="sub">Accedi con l'account dell'ecosistema</p>
+    <div class="field"><label>Email</label><input id="lemail" type="email" autocomplete="username" required></div>
+    <div class="field"><label>Password</label><input id="lpass" type="password" autocomplete="current-password" required></div>
+    <button class="btn primary block" id="lbtn" type="submit">Accedi</button>
+    <div class="err-text" id="lerr"></div>
+  </form>
+</div>
+
+<header class="topbar">
+  <div class="brand">
+    <img class="logo-full" src="../shared/brand/logo-orizzontale-bianco.png" alt="Officine Demo" width="134" height="40">
+    <img class="logo-mark" src="../shared/brand/simbolo-bianco.png" alt="Officine Demo" width="25" height="35">
+    <div class="app-name">Gestione Stampi</div>
+  </div>
+  <button class="menu-btn" id="menu-btn" onclick="toggleMenu()" aria-label="Menu" aria-expanded="false"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  <nav class="nav" id="nav">
+    <button data-view="scan" class="active" onclick="show('scan')"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2M7 8v8M11 8v8M15 8v8M18 8v8"/></svg><span class="lbl">Scansiona</span></button>
+    <button data-view="stampi" onclick="show('stampi')"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8v8l9 5 9-5z"/><path d="m3 8 9 5 9-5M12 13v8"/></svg><span class="lbl">Stampi</span></button>
+    <button data-view="anagrafiche" onclick="show('anagrafiche')"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14"/><path d="M9 21v-6h6v6M9 10h.01M15 10h.01"/></svg><span class="lbl">Anagrafiche</span></button>
+    <button data-view="movimenti" onclick="show('movimenti')"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5M12 7v5l3 2"/></svg><span class="lbl">Movimenti</span></button>
+    <button data-view="backup" onclick="show('backup')"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg><span class="lbl">Backup</span></button>
+    <button class="logout install-btn" id="install-btn" onclick="installApp()" title="Installa l'app su questo dispositivo"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg><span class="lbl">Installa app</span></button>
+    <div class="who" id="who"></div>
+    <button class="logout" onclick="openPassword()" title="Cambia password"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="15" r="4"/><path d="M10.8 12.2 20 3M17 6l3 3M15 8l2 2"/></svg><span class="lbl">Password</span></button>
+    <button class="logout" onclick="logout()" title="Esci"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg><span class="lbl">Esci</span></button>
+  </nav>
+  <button class="help-btn" id="help-btn" onclick="openGuida()" title="Guida" aria-label="Guida all'uso"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5"/><path d="M9.3 9.2a2.8 2.8 0 0 1 5.4 1c0 1.9-2.7 2.5-2.7 4"/><path d="M12 17.4h.01"/></svg></button>
+</header>
+
+<main>
+  <div id="storage-warn"></div>
+
+  <!-- SCANSIONA -->
+  <section id="view-scan" class="view active">
+    <div id="backup-notice"></div>
+    <div class="card scan-hero">
+      <div class="scan-icon">
+        <svg width="70" height="70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2"/><rect x="7" y="7" width="4" height="4" rx=".5"/><rect x="13" y="7" width="4" height="4" rx=".5"/><rect x="7" y="13" width="4" height="4" rx=".5"/><path d="M13 13h1.5v1.5H13zM15.5 15.5H17V17h-1.5z"/></svg>
+      </div>
+      <div>
+        <div class="ready"><i></i>Lettore pronto</div>
+        <h2>Spara il QR code o il barcode dello stampo</h2>
+        <p class="sub" style="margin:6px 0 0">Si apre la scheda con stato e posizione. Se il codice non è ancora associato puoi creare l'anagrafica.</p>
+        <div class="scan-actions">
+          <button class="btn primary" onclick="openCam(onScan)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3z"/><circle cx="12" cy="13" r="3.5"/></svg>Usa la fotocamera</button>
+          <button class="btn ghost" onclick="openManual()"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M7 14h10"/></svg>Inserisci il codice</button>
+          <button class="btn outline" onclick="openForm()"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>Nuovo stampo</button>
+        </div>
+      </div>
+    </div>
+    <div class="tiles" id="tiles"></div>
+    <div class="section-title"><h3>Ultimi movimenti</h3><button class="link" onclick="show('movimenti')">Vedi tutti</button></div>
+    <div class="card" id="home-mov"></div>
+  </section>
+
+  <!-- STAMPI -->
+  <section id="view-stampi" class="view">
+    <h2>Anagrafica stampi</h2>
+    <p class="sub">Tocca uno stampo per aprire la scheda e aggiornarne lo stato.</p>
+    <div class="toolbar">
+      <div class="search"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="color:var(--muted)"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="q" type="search" placeholder="Cerca per nome, codice, posizione, pressa, coproprietario…" oninput="cerca=this.value;renderStampi()"></div>
+      <button class="btn primary" onclick="openForm()"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>Nuovo stampo</button>
+    </div>
+    <div class="chips" id="chips"></div>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <!-- ANAGRAFICHE -->
+  <section id="view-anagrafiche" class="view">
+    <h2>Manutentori, partner e coproprietari</h2>
+    <p class="sub">Le società che inserisci qui compaiono come suggerimento mentre scrivi le prime lettere.</p>
+    <div class="chips" id="sog-tabs"></div>
+    <div class="toolbar">
+      <div class="search"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="color:var(--muted)"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="qs" type="search" placeholder="Cerca società, referente, telefono…" oninput="renderSoggetti()"></div>
+      <button class="btn primary" onclick="openSoggetto(null, sogTipo)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg><span id="sog-new-lbl">Nuovo coproprietario</span></button>
+    </div>
+    <div class="grid" id="sog-grid"></div>
+  </section>
+
+  <!-- MOVIMENTI -->
+  <section id="view-movimenti" class="view">
+    <h2>Movimenti</h2>
+    <p class="sub">Registro di tutti i cambi di stato, dal più recente.</p>
+    <div class="toolbar">
+      <div class="search"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="color:var(--muted)"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="qm" type="search" placeholder="Cerca stampo, pressa, coproprietario…" oninput="renderMovimenti()"></div>
+    </div>
+    <div class="card" id="mov-list"></div>
+  </section>
+
+  <!-- BACKUP -->
+  <section id="view-backup" class="view">
+    <h2>Backup dati</h2>
+    <p class="sub">I dati sono online su Supabase, condivisi con l'ecosistema, e vengono inclusi nel backup notturno via email.</p>
+    <div class="b-grid">
+      <div class="card b-card">
+        <h3>Esporta backup</h3>
+        <p>Scarica un file .json con anagrafica stampi e movimenti.<br><span id="last-backup"></span></p>
+        <button class="btn primary" onclick="exportJSON()">Esporta backup</button>
+      </div>
+      <div class="card b-card admin-only" style="flex-direction:column">
+        <h3>Importa backup</h3>
+        <p>Ripristina i dati da un file .json (anche quello del backup notturno). Solo amministratore.</p>
+        <button class="btn ghost" onclick="document.getElementById('imp').click()">Scegli file</button>
+        <input type="file" id="imp" accept=".json,application/json" hidden onchange="importJSON(this)">
+      </div>
+      <div class="card b-card">
+        <h3>Elenco per Excel</h3>
+        <p>Esporta l'elenco stampi con stato e posizione in formato CSV, apribile con Excel.</p>
+        <button class="btn outline" onclick="exportCSV()">Esporta CSV</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="overlay" id="modal" onclick="if(event.target===this)closeModal()"><div class="sheet" id="sheet"></div></div>
+
+<button class="scan-fab" id="scan-fab" onclick="openCam(onScan)" aria-label="Scansiona con la fotocamera"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2M7 12h10"/></svg><span>Scansiona</span></button>
+<div class="menu-backdrop" id="menu-backdrop" onclick="toggleMenu(false)"></div>
+
+<div class="overlay" id="cam">
+  <div class="sheet">
+    <div class="cam-box"><video id="video" playsinline muted></video><div class="cam-frame"></div><div class="cam-line"></div></div>
+    <div class="cam-foot"><span>Inquadra il QR code o il barcode</span><button class="btn ghost" onclick="closeCam()">Annulla</button></div>
+  </div>
+</div>
+
+<div id="print-area"></div>
+<div id="toast"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="../shared/js/config.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

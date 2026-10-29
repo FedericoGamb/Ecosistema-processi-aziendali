@@ -1,0 +1,20 @@
+# configurazione con le chiavi del progetto Supabase (si genera da config.example.js o dalle variabili d'ambiente)
+web/shared/js/config.js
+.env
+.env.*
+!.env.example
+
+# dati reali esportati dalle app: restano fuori dal repository
+produzione.json
+dati-collaudi.json
+*-backup-*.json
+collaudi-seriali-*.json
+
+# Supabase CLI e Netlify in locale
+supabase/.temp/
+supabase/.branches/
+.netlify/
+
+node_modules/
+.DS_Store
+Thumbs.db

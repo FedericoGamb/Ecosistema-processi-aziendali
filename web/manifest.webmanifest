@@ -1,0 +1,23 @@
+{
+  "name": "Gestione Produzione",
+  "short_name": "Produzione",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#102935",
+  "theme_color": "#102935",
+  "lang": "it",
+  "icons": [
+    {
+      "src": "shared/brand/icone/produzione-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "shared/brand/icone/produzione-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

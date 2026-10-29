@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Gestione Produzione · Collaudi e Seriali</title><link rel="icon" type="image/png" href="../shared/brand/favicon-64.png"><link rel="stylesheet" href="css/base.css"></head><body>
+<script src="../shared/js/config.js"></script>
+<script src="js/archivio-online.js"></script>
+<script src="js/archivio-locale.js"></script>
+<title>Gestione Produzione · Collaudi e Seriali</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="css/collaudi.css">
+
+<script src="js/tema.js"></script>
+<header class="top">
+  <div class="top-in">
+    <div class="toprow">
+      <div class="brand"><span class="brand-logo"><img src="../shared/brand/simbolo-bianco.png" alt="Officine Demo"></span><div><h1>Gestione Produzione</h1><p class="bsub">Collaudi e Seriali</p></div></div>
+      <div class="toprow-r">
+        <button type="button" class="bell" id="searchBtn" data-act="gs-open" aria-label="Cerca ODA, matricola, avviso o seriale" title="Cerca (tasto /)">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>
+        </button>
+        <button type="button" class="bell themebtn" id="themeBtn" data-act="theme" aria-label="Tema automatico. Tocca per cambiare tema" title="Tema automatico"></button>
+        <button type="button" class="bell folder" id="folderBtn" data-act="folder-go" data-s="none" aria-label="Cartella dei file: non collegata" title="Cartella dei file: non collegata">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 7.5A1.5 1.5 0 0 1 5 6h4l2 2.2h8A1.5 1.5 0 0 1 20.5 9.7v8.8A1.5 1.5 0 0 1 19 20H5a1.5 1.5 0 0 1-1.5-1.5z"/></svg>
+          <span class="fd" aria-hidden="true"></span>
+        </button>
+        <button type="button" class="bell" id="bellBtn" data-act="bell" aria-haspopup="true" aria-expanded="false" aria-controls="bellPanel" aria-label="Promemoria: nessuna scadenza da pianificare">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9a6 6 0 0 1 12 0c0 6 2.5 7.5 2.5 7.5h-17S6 15 6 9"/><path d="M10 20a2 2 0 0 0 4 0"/></svg>
+          <span class="bn" id="bellN" hidden></span>
+        </button>
+        <span class="chip" id="dbChip" data-s="connecting">Collego i dati…</span>
+      </div>
+    </div>
+    <section class="bell-panel" id="bellPanel" role="region" aria-label="Promemoria scadenze" hidden></section>
+    <section class="bell-panel" id="searchPanel" role="search" aria-label="Cerca" hidden>
+      <div class="gs-in"><input type="search" id="gq" placeholder="Cerca ODA, matricola, avviso, seriale o barcode…" aria-label="Cerca in tutto il portale" autocomplete="off"><button type="button" class="btn ghost small" data-act="gs-close">Chiudi</button></div>
+      <div id="gres"></div>
+    </section>
+    <nav class="tabs" aria-label="Sezioni">
+      <span class="tablbl tabfirst">Collaudi e Seriali</span>
+      <button type="button" data-act="nav" data-view="oggi"><svg class="ico" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 11 12 4l8.5 7"/><path d="M5.5 9.5V20h13V9.5"/><path d="M10 20v-5h4v5"/></svg><span class="tl">Oggi</span><span class="bdg bad" id="oggiBadge" hidden></span></button>
+      <button type="button" data-act="nav" data-view="ordini"><svg class="ico" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4h6v3H9z"/><path d="M7 5.5H5.5V21h13V5.5H17"/><path d="M8.5 11.5h7M8.5 15.5h7"/></svg><span class="tl">Ordini</span></button>
+      <button type="button" data-act="nav" data-view="calendario" aria-current="page"><svg class="ico" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5.5" width="16" height="15" rx="2"/><path d="M4 10h16M8.5 3.5v4M15.5 3.5v4"/></svg><span class="tl">Calendario</span><span class="bdg" id="calBadge" hidden></span></button>
+      <button type="button" data-act="nav" data-view="avanzamento"><svg class="ico" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16"/><path d="M7 16v-5M12 16V6M17 16v-8"/></svg><span class="tl">Avanzamento</span><span class="bdg bad" id="ecoBadge" hidden></span></button>
+      <button type="button" data-act="nav" data-view="lotto"><svg class="ico" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 3.5h8l4 4v13h-12z"/><path d="M14 3.5V8h4.5M9.5 13h6M9.5 16.5h6"/></svg><span class="tl">Crea file</span></button>
+      <button type="button" data-act="nav" data-view="etichette"><svg class="ico" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6v12M7 6v12M11 6v12M13.5 6v12M17 6v12M20 6v12"/></svg><span class="tl">Etichette</span></button>
+      <button type="button" data-act="nav" data-view="matricole"><svg class="ico" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5 19.5 7.5v9L12 20.5l-7.5-4v-9z"/><path d="M4.5 7.5 12 11.5l7.5-4M12 11.5v9"/></svg><span class="tl">Matricole</span></button>
+      <button type="button" data-act="nav" data-view="storico"><svg class="ico" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg><span class="tl">Storico</span></button>
+      <span class="tabsep" aria-hidden="true"></span><span class="tablbl">Gestione Produzione</span><a class="tabx" href="../#setup"><svg class="ico" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8.5" r="3.5"/><path d="M3 20c.5-3.5 3-5.5 6-5.5s5.5 2 6 5.5"/><path d="M15.5 5.2a3.5 3.5 0 0 1 0 6.6M21 20c-.3-2.6-1.8-4.4-4-5.2"/></svg>Anagrafiche</a><a class="tabx" href="../#report"><svg class="ico" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8.5 16v-3M12 16V8.5M15.5 16v-5"/></svg>Report</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <div id="notice" role="status" aria-live="polite"></div>
+
+  <div class="view" data-view="oggi" hidden>
+    <div class="oggi-grid">
+      <section class="card" id="oggiTodo"></section>
+      <div class="oggi-side"><section class="card" id="oggiRisk"></section><section class="card" id="oggiProd"></section></div>
+    </div>
+  </div>
+
+  <div class="view" data-view="etichette" hidden>
+    <section class="card">
+      <div><h2>Stampa etichette</h2><p class="sub">Scegli il lotto e cosa stampare: il portale prepara il file per la Zebra, con gli stessi seriali e barcode del CSV. Poi doppio clic su “Stampa Zebra” sul PC vicino alla stampante.</p></div>
+      <div id="labHost"></div>
+    </section>
+    <section class="card">
+      <details class="pane" id="labCfgPane"><summary>Stampante e formato dell’etichetta</summary><div class="in" id="labCfg"></div></details>
+    </section>
+  </div>
+
+  <div class="view" data-view="ordini" hidden>
+    <section class="card">
+      <div class="sec-head">
+        <div><h2>Ordini</h2><p class="sub">Inserisci l’OdA con le quantità per destinazione. Quando arriva il momento scegli quanta parte prendere e il giorno del collaudo.</p></div>
+        <div class="row" style="margin:0"><button type="button" class="btn" data-act="pdf-order" id="pdfOrderBtn" hidden>Carica da PDF…</button><button type="button" class="btn primary" data-act="new-order">+ Nuovo ordine</button></div>
+        <input type="file" id="pdfOrderInput" accept=".pdf,application/pdf" hidden>
+      </div>
+      <div class="ordbar">
+        <div class="seg-tabs" role="group" aria-label="Filtro ordini">
+          <button type="button" data-act="ord-filter" data-f="open" aria-pressed="true">Da pianificare</button>
+          <button type="button" data-act="ord-filter" data-f="planned" aria-pressed="false">Pianificati</button>
+          <button type="button" data-act="ord-filter" data-f="archive" aria-pressed="false">Archivio</button>
+        </div>
+        <input type="search" id="ordQ" class="oq" placeholder="Cerca ODA, matricola, descrizione, destinazione…" aria-label="Cerca negli ordini" autocomplete="off">
+      </div>
+      <div id="ordHost"></div>
+    </section>
+    <section class="card editor" id="pdfReview" hidden></section>
+    <section class="card editor" id="ordEditor" hidden></section>
+  </div>
+
+  <div class="view" data-view="calendario">
+    <div class="cal-layout">
+    <section class="card cal-main">
+      <div class="cal-head">
+        <div class="cal-nav">
+          <button type="button" class="btn small" data-act="cal-prev" aria-label="Mese precedente">‹</button>
+          <h2 id="calTitle" aria-live="polite"></h2>
+          <button type="button" class="btn small" data-act="cal-next" aria-label="Mese successivo">›</button>
+          <button type="button" class="btn small" data-act="cal-today">Oggi</button>
+          <button type="button" class="btn small" data-act="cal-vista" id="calVista">Elenco</button>
+        </div>
+        <p class="hint" style="margin:0">Tocca un giorno per vedere o aggiungere collaudi. Trascina un collaudo su un altro giorno per spostarlo.</p>
+      </div>
+      <div class="cal-grid" id="calGrid"></div>
+      <div class="cal-list" id="calList" hidden></div>
+      <div class="legend"><span>Pianificato</span><span class="lf">File creati</span><span class="lw">Da modificare sul portale collaudi</span><span class="lr">A rischio per la produzione</span><span class="ld">✓ Collaudato</span><span class="lx">✗ Respinto</span><span class="le">Prodotto esterno</span></div>
+    </section>
+    <div class="cal-side">
+      <section class="card panel" id="calPanel" hidden></section>
+      <section class="card" id="calTodo"></section>
+    </div>
+    </div>
+  </div>
+
+  <div class="view" data-view="avanzamento" hidden>
+    <section class="card">
+      <div class="sec-head">
+        <div><h2>Avanzamento produzione</h2><p class="sub">I collaudi in calendario confrontati con i pezzi registrati in Gestione Produzione (reparto Officina). Le stime usano il ritmo del prodotto e le postazioni di ogni collaudo.</p></div>
+        <div class="row" style="margin:0"><button type="button" class="btn" data-act="eco-file">Carica produzione.json…</button><button type="button" class="btn primary" data-act="eco-reload">Aggiorna</button></div>
+      </div>
+      <input type="file" id="ecoFileInput" accept=".json,application/json" hidden>
+      <div id="ecoSrc"></div>
+      <div id="ecoHost"></div>
+    </section>
+    <section class="card"><details class="pane"><summary>Impostazioni della stima</summary><div class="in" id="ecoCfg"></div></details></section>
+    <section class="card" id="riepCard">
+      <div class="sec-head"><div><h2>Riepilogo del mese</h2><p class="sub">Collaudi fatti, respinti, spostati e in ritardo rispetto alla scadenza dell’ordine.</p></div>
+        <div class="row" style="margin:0"><select id="riepM" aria-label="Mese del riepilogo"></select><button type="button" class="btn small" data-act="riep-csv">Scarica CSV</button></div></div>
+      <div id="riepHost"></div>
+    </section>
+  </div>
+
+  <div class="view" data-view="lotto" hidden>
+    <section class="card result" id="secResult" hidden></section>
+
+    <section class="card" id="secDays">
+      <div><h2>Collaudi da preparare</h2><p class="sub">I collaudi messi in calendario. Scegli il giorno: preparo le schede con ordine, destinazioni e quantità. Gli ultimi numeri usati li prendo dall’anagrafica e dallo storico.</p></div>
+      <div id="daysHost"></div>
+    </section>
+
+    <section class="card" id="secLotto">
+      <div><h2>Lotto</h2><p class="sub">Dati comuni a tutti i file di questo caricamento.</p></div>
+      <div class="grid g3">
+        <label class="field"><span class="l">N. avviso (per il nome del CSV)</span>
+          <input type="text" id="avviso" class="num" autocomplete="off" spellcheck="false" placeholder="es. 036"></label>
+        <label class="field"><span class="l">Mese di collaudo</span>
+          <select id="mese"></select></label>
+        <label class="field"><span class="l">Anno nel barcode (2 cifre)</span>
+          <input type="text" id="anno" class="num" inputmode="numeric" autocomplete="off" maxlength="2" placeholder="26"></label>
+      </div>
+      <ul class="msgs" id="lottoMsgs"></ul>
+    </section>
+
+    <section class="card" id="secPick">
+      <div><h2>Aggiungi una matricola a mano</h2><p class="sub">Per un lotto senza collaudo in calendario: tocca la matricola e compila ordine e quantità.</p></div>
+      <div id="pickHost"></div>
+    </section>
+
+    <div id="linesHost" class="view"></div>
+
+    <section class="card" id="secPreview" hidden>
+      <div><h2>Anteprima</h2><p class="sub">Controlla numeri e nomi dei file prima di registrare.</p></div>
+      <div id="preview"></div>
+    </section>
+
+    <section class="card" id="secAction" hidden><div id="action"></div></section>
+  </div>
+
+  <div class="view" data-view="matricole" hidden>
+    <section class="card">
+      <div class="sec-head">
+        <div><h2>Anagrafica matricole</h2><p class="sub">Per ogni matricola si salvano i dati fissi e gli ultimi numeri usati. Sotto ogni scheda trovi “Modifica” ed “Elimina”.</p></div>
+        <button type="button" class="btn primary" data-act="new-mat">+ Nuova matricola</button>
+      </div>
+      <div id="matGrid"></div>
+    </section>
+    <section class="card editor" id="matEditor" hidden></section>
+  </div>
+
+  <div class="view" data-view="storico" hidden>
+    <section class="card" id="folderCard">
+      <div><h2>Cartella dei file</h2><p class="sub">Dove finiscono i file che scarichi: Excel di produzione e PDF divisi per prodotto, CSV portale cliente a parte.</p></div>
+      <div id="folderHost"></div>
+    </section>
+    <section class="card">
+      <div><h2>Lotti registrati</h2><p class="sub">Gli ultimi lotti creati, con i pulsanti per scaricare di nuovo i file.</p></div>
+      <div id="runsHost"></div>
+    </section>
+    <section class="card">
+      <details class="pane" id="paneConfig"><summary>Regole del codice a barre</summary><div class="in" id="configHost"></div></details>
+    </section>
+    <section class="card" id="bkCard" hidden>
+      <div><h2>Backup notturno</h2><p class="sub">Ogni notte i dati di Collaudi e Seriali e della Gestione Produzione arrivano per email, pronti da reimportare.</p></div>
+      <div id="bkHost"></div>
+    </section>
+    <section class="card" id="logCard" hidden>
+      <div class="sec-head"><div><h2>Registro delle modifiche</h2><p class="sub">Chi ha cambiato cosa e quando: matricole, ordini, collaudi, lotti, anagrafiche e correzioni della produzione.</p></div>
+        <button type="button" class="btn small" data-act="log-load">Aggiorna</button></div>
+      <div class="ordbar"><div class="seg-tabs" role="group" aria-label="Filtro registro">
+        <button type="button" data-act="log-f" data-f="" aria-pressed="true">Tutto</button>
+        <button type="button" data-act="log-f" data-f="serials" aria-pressed="false">Matricole</button>
+        <button type="button" data-act="log-f" data-f="orders" aria-pressed="false">Ordini</button>
+        <button type="button" data-act="log-f" data-f="events" aria-pressed="false">Collaudi</button>
+        <button type="button" data-act="log-f" data-f="runs" aria-pressed="false">Lotti</button>
+        <button type="button" data-act="log-f" data-f="prod" aria-pressed="false">Produzione</button></div>
+        <input type="search" id="logQ" class="oq" placeholder="Cerca matricola, ODA, persona…" aria-label="Cerca nel registro" autocomplete="off"></div>
+      <div id="logHost"></div>
+    </section>
+  </div>
+</main>
+<div class="toasts" id="toasts" aria-live="polite"></div>
+
+<script src="js/seriali-core.js"></script>
+<script src="js/modello-xlsx.js"></script>
+<script src="../shared/js/ecosistema.js"></script>
+<script src="js/logo-pdf.js"></script>
+<script src="js/app.js"></script>
+
+<!-- pdf.js 3.11.174 (Mozilla, licenza Apache 2.0), compresso: serve al lettore degli ordini -->
+<script type="application/octet-stream" id="pdfjs-main" data-src="../vendor/pdfjs/pdf.js.gz"></script>
+<script type="application/octet-stream" id="pdfjs-worker" data-src="../vendor/pdfjs/pdf.worker.js.gz"></script>
+<footer><p class="gf-copy">© <span data-gf-anno>2026</span> · Software realizzato e di proprietà di <a href="https://www.linkedin.com/in/federicogambina/" target="_blank" rel="noopener author">Federico Gambina</a></p></footer>
+<script src="../shared/js/footer.js"></script>
+</body></html>

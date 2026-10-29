@@ -1,0 +1,1039 @@
+{
+ "operatori": [
+  {
+   "id": "op-mario",
+   "a": "Mario",
+   "b": "Rossi",
+   "reparto": "stampaggio"
+  },
+  {
+   "id": "op-laura",
+   "a": "Laura",
+   "b": "Bianchi",
+   "reparto": "officina"
+  },
+  {
+   "id": "op-luca",
+   "a": "Luca",
+   "b": "Verdi",
+   "reparto": "stampaggio"
+  },
+  {
+   "id": "op-sara",
+   "a": "Sara",
+   "b": "Neri",
+   "reparto": "officina"
+  }
+ ],
+ "prodotti": [
+  {
+   "id": "pr-100210",
+   "a": "ST100210",
+   "b": "Coperchio scatola di derivazione",
+   "reparto": "stampaggio",
+   "ritmo": 900,
+   "matricola": "100210"
+  },
+  {
+   "id": "pr-100220",
+   "a": "ST100220",
+   "b": "Base scatola di derivazione",
+   "reparto": "stampaggio",
+   "ritmo": 850,
+   "matricola": "100220"
+  },
+  {
+   "id": "pr-100200",
+   "a": "PF100200",
+   "b": "Quadro in vetroresina 600x400",
+   "reparto": "officina",
+   "ritmo": 40,
+   "matricola": "100200",
+   "postazioni": 2
+  },
+  {
+   "id": "pr-100300",
+   "a": "PF100300",
+   "b": "Morsettiera di distribuzione",
+   "reparto": "officina",
+   "ritmo": 120,
+   "matricola": "100300",
+   "postazioni": 1
+  }
+ ],
+ "scarti": [
+  {
+   "id": "sc-bave",
+   "a": "S01",
+   "b": "Bave di stampaggio",
+   "reparto": "stampaggio"
+  },
+  {
+   "id": "sc-rotture",
+   "a": "S02",
+   "b": "Rottura in estrazione",
+   "reparto": "stampaggio"
+  },
+  {
+   "id": "sc-montaggio",
+   "a": "S10",
+   "b": "Errore di montaggio",
+   "reparto": "officina"
+  }
+ ],
+ "fermi": [
+  {
+   "id": "fe-attrezzaggio",
+   "a": "F01",
+   "b": "Cambio stampo / attrezzaggio"
+  },
+  {
+   "id": "fe-guasto",
+   "a": "F02",
+   "b": "Guasto macchina"
+  },
+  {
+   "id": "fe-materiale",
+   "a": "F03",
+   "b": "Mancanza materiale"
+  }
+ ],
+ "registrazioni": [
+  {
+   "id": "demo-0005",
+   "ts": "2026-10-28T16:56:05+01:00",
+   "operatore": "Luca Verdi",
+   "prodotto": "ST100210 Coperchio scatola di derivazione",
+   "tipo": "Produzione",
+   "causa": "",
+   "pezzi": 827
+  },
+  {
+   "id": "demo-0007",
+   "ts": "2026-10-28T16:48:07+01:00",
+   "operatore": "Sara Neri",
+   "prodotto": "PF100200 Quadro in vetroresina 600x400",
+   "tipo": "Scarto",
+   "causa": "S10 Errore di montaggio",
+   "pezzi": 2
+  },
+  {
+   "id": "demo-0006",
+   "ts": "2026-10-28T16:48:06+01:00",
+   "operatore": "Sara Neri",
+   "prodotto": "PF100200 Quadro in vetroresina 600x400",
+   "tipo": "Produzione",
+   "causa": "",
+   "pezzi": 37
+  },
+  {
+   "id": "demo-0002",
+   "ts": "2026-10-28T16:34:02+01:00",
+   "operatore": "Mario Rossi",
+   "prodotto": "ST100220 Base scatola di derivazione",
+   "tipo": "Scarto",
+   "causa": "S01 Bave di stampaggio",
+   "pezzi": 7
+  },
+  {
+   "id": "demo-0001",
+   "ts": "2026-10-28T16:34:01+01:00",
+   "operatore": "Mario Rossi",
+   "prodotto": "ST100220 Base scatola di derivazione",
+   "tipo": "Produzione",
+   "causa": "",
+   "pezzi": 738
+  },
+  {
+   "id": "demo-0004",
+   "ts": "2026-10-28T16:31:04+01:00",
+   "operatore": "Laura Bianchi",
+   "prodotto": "PF100200 Quadro in vetroresina 600x400",
+   "tipo": "Scarto",
+   "causa": "S10 Errore di montaggio",
+   "pezzi": 2
+  },
+  {
+   "id": "demo-0003",
+   "ts": "2026-10-28T16:31:03+01:00",
+   "operatore": "Laura Bianchi",
+   "prodotto": "PF100200 Quadro in vetroresina 600x400",
+   "tipo": "Produzione",
+   "causa": "",
+   "pezzi": 31
+  },
+  {
+   "id": "demo-0011",
+   "ts": "2026-10-27T16:48:11+01:00",
+   "operatore": "Luca Verdi",
+   "prodotto": "ST100210 Coperchio scatola di derivazione",
+   "tipo": "Scarto",
+   "causa": "S02 Rottura in estrazione",
+   "pezzi": 7
+  },
+  {
+   "id": "demo-0010",
+   "ts": "2026-10-27T16:48:10+01:00",
+   "operatore": "Luca Verdi",
+   "prodotto": "ST100210 Coperchio scatola di derivazione",
+   "tipo": "Produzione",
+   "causa": "",
+   "pezzi": 691
+  },
+  {
+   "id": "demo-0012",
+   "ts": "2026-10-27T16:41:12+01:00",
+   "operatore": "Sara Neri",
+   "prodotto": "PF100300 Morsettiera di distribuzione",
+   "tipo": "Produzione",
+   "causa": "",
+   "pezzi": 100
+  },
+  {
+   "id": "demo-0008",
+   "ts": "2026-10-27T16:39:08+01:00",
+   "operatore": "Mario Rossi",
+   "prodotto": "ST100210 Coperchio scatola di derivazione",
+   "tipo": "Produzione",
+   "causa": "",
+   "pezzi": 788
+  },
+  {
+   "id": "demo-0009",
+   "ts": "2026-10-27T16:33:09+01:00",
+   "operatore": "Laura Bianchi",
+   "prodotto": "PF100200 Quadro in vetroresina 600x400",
+   "tipo": "Produzione",
+   "causa": "",
+   "pezzi": 36
+  },
+  {
+   "id": "demo-0017",
+   "ts": "2026-10-26T16:59:17+01:00",
+   "operatore": "Luca Verdi",
+   "prodotto": "ST100210 Coperchio scatola di derivazione",
+   "tipo": "Scarto",
+   "causa": "S01 Bave di stampaggio",
+   "pezzi": 10
+  },
+  {
+   "id": "demo-0016",
+   "ts": "2026-10-26T16:59:16+01:00",
+   "operatore": "Luca Verdi",
+   "prodotto": "ST100210 Coperchio scatola di derivazione",
+   "tipo": "Produzione",
+   "causa": "",
+   "pezzi": 807
+  },
+  {
+   "id": "demo-0018",
+   "ts": "2026-10-26T16:40:18+01:00",
+   "operatore": "Sara Neri",
+   "prodotto": "PF100300 Morsettiera di distribuzione",
+   "tipo": "Produzione",
+   "causa": "",
+   "pezzi": 115
+  },
+  {
+   "id": "demo-0015",
+   "ts": "2026-10-26T16:39:15+01:00",
+   "operatore": "Laura Bianchi",
+   "prodotto": "PF100300 Morsettiera di distribuzione",
+   "tipo": "Scarto",
+   "causa": "S10 Errore di montaggio",
+   "pezzi": 2
+  },
+  {
+   "id": "demo-0014",
+   "ts": "2026-10-26T16:39:14+01:00",
+   "operatore": "Laura Bianchi",
+   "prodotto": "PF100300 Morsettiera di distribuzione",
+   "tipo": "Produzione",
+   "causa": "",
+   "pezzi": 111
+  },
+  {
+   "id": "demo-0013",
+   "ts": "2026-10-26T16:32:13+01:00",
+   "operatore": "Mario Rossi",
+   "prodotto": "ST100210 Coperchio scatola di derivazione",
+   "tipo": "Produzione",
+   "causa": "",
+   "pezzi": 830
+  },
+  {
+   "id": "demo-0026",
+   "ts": "2026-10-23T16:42:26+01:00",
+   "operatore": "Sara Neri",
+   "prodotto": "PF100200 Quadro in vetroresina 600x400",
+   "tipo": "Fermo",
+   "causa": "F02 Guasto macchina",
+   "durataSec": 3600
+  },
+  {
+   "id": "demo-0025",
+   "ts": "2026-10-23T16:42:25+01:00",
+   "operatore": "Sara Neri",
+   "prodotto": "PF100200 Quadro in vetroresina 600x400",
+   "tipo": "Produzione",
+   "causa": "",
+   "pezzi": 34
+  },
+  {
+   "id": "demo-0019",
+   "ts": "2026-10-23T16:32:19+01:00",
+   "operatore": "Mario Rossi",
+   "prodotto": "ST100220 Base scatola di derivazione",
+   "tipo": "Produzione",
+   "causa": "",
+   "pezzi": 851
+  },
+  {
+   "id": "demo-0021",
+   "ts": "2026-10-23T16:31:21+01:00",
+   "operatore": "Laura Bianchi",
+   "prodotto": "PF100200 Quadro in vetroresina 600x400",
+   "tipo": "Scarto",
+   "causa": "S10 Errore di montaggio",
+   "pezzi": 3
+  },
+  {
+   "id": "demo-0020",
+   "ts": "2026-10-23T16:31:20+01:00",
+   "operatore": "Laura Bianchi",
+   "prodotto": "PF100200 Quadro in vetroresina 600x400",
+   "tipo": "Produzione",
+   "causa": "",
+   "pezzi": 38
+  },
+  {
+   "id": "demo-0024",
+   "ts": "2026-10-23T16:30:24+01:00",
+   "operatore": "Luca Verdi",
+   "prodotto": "ST100220 Base scatola di derivazione",
+   "tipo": "Fermo",
+   "causa": "F02 Guasto macchina",
+   "durataSec": 1800
+  },
+  {
+   "id": "demo-0023",
+   "ts": "2026-10-23T16:30:23+01:00",
+   "operatore": "Luca Verdi",
+   "prodotto": "ST100220 Base scatola di derivazione",
+   "tipo": "Scarto",
+   "causa": "S01 Bave di stampaggio",
+   "pezzi": 9
+  },
+  {
+   "id": "demo-0022",
+   "ts": "2026-10-23T16:30:22+01:00",
+   "operatore": "Luca Verdi",
+   "prodotto": "ST100220 Base scatola di derivazione",
+   "tipo": "Produzione",
+   "causa": "",
+   "pezzi": 877
+  },
+  {
+   "id": "demo-0028",
+   "ts": "2026-10-22T16:58:28+01:00",
+   "operatore": "Mario Rossi",
+   "prodotto": "ST100220 Base scatola di derivazione",
+   "tipo": "Scarto",
+   "causa": "S02 Rottura in estrazione",
+   "pezzi": 8
+  },
+  {
+   "id": "demo-0027",
+   "ts": "2026-10-22T16:58:27+01:00",
+   "operatore": "Mario Rossi",
+   "prodotto": "ST100220 Base scatola di derivazione",
+   "tipo": "Produzione",
+   "causa": "",
+   "pezzi": 672
+  },
+  {
+   "id": "demo-0034",
+   "ts": "2026-10-22T16:44:34+01:00",
+   "operatore": "Sara Neri",
+   "prodotto": "PF100200 Quadro in vetroresina 600x400",
+   "tipo": "Produzione",
+   "causa": "",
+   "pezzi": 40
+  },
+  {
+   "id": "demo-0033",
+   "ts": "2026-10-22T16:39:33+01:00",
+   "operatore": "Luca Verdi",
+   "prodotto": "ST100220 Base scatola di derivazione",
+   "tipo": "Scarto",
+   "causa": "S02 Rottura in estrazione",
+   "pezzi": 7
+  },
+  {
+   "id": "demo-0032",
+   "ts": "2026-10-22T16:39:32+01:00",
+   "operatore": "Luca Verdi",
+   "prodotto": "ST100220 Base scatola di derivazione",
+   "tipo": "Produzione",
+   "causa": "",
+   "pezzi": 638
+  },
+  {
+   "id": "demo-0031",
+   "ts": "2026-10-22T16:37:31+01:00",
+   "operatore": "Laura Bianchi",
+   "prodotto": "PF100300 Morsettiera di distribuzione",
+   "tipo": "Fermo",
+   "causa": "F03 Mancanza materiale",
+   "durataSec": 1800
+  },
+  {
+   "id": "demo-0030",
+   "ts": "2026-10-22T16:37:30+01:00",
+   "operatore": "Laura Bianchi",
+   "prodotto": "PF100300 Morsettiera di distribuzione",
+   "tipo": "Scarto",
+   "causa": "S10 Errore di montaggio",
+   "pezzi": 2
+  },
+  {
+   "id": "demo-0029",
+   "ts": "2026-10-22T16:37:29+01:00",
+   "operatore": "Laura Bianchi",
+   "prodotto": "PF100300 Morsettiera di distribuzione",
+   "tipo": "Produzione",
+   "causa": "",
+   "pezzi": 95
+  },
+  {
+   "id": "demo-0043",
+   "ts": "2026-10-21T16:50:43+01:00",
+   "operatore": "Sara Neri",
+   "prodotto": "PF100200 Quadro in vetroresina 600x400",
+   "tipo": "Fermo",
+   "causa": "F02 Guasto macchina",
+   "durataSec": 3600
+  },
+  {
+   "id": "demo-0042",
+   "ts": "2026-10-21T16:50:42+01:00",
+   "operatore": "Sara Neri",
+   "prodotto": "PF100200 Quadro in vetroresina 600x400",
+   "tipo": "Scarto",
+   "causa": "S10 Errore di montaggio",
+   "pezzi": 3
+  },
+  {
+   "id": "demo-0041",
+   "ts": "2026-10-21T16:50:41+01:00",
+   "operatore": "Sara Neri",
+   "prodotto": "PF100200 Quadro in vetroresina 600x400",
+   "tipo": "Produzione",
+   "causa": "",
+   "pezzi": 33
+  },
+  {
+   "id": "demo-0040",
+   "ts": "2026-10-21T16:49:40+01:00",
+   "operatore": "Luca Verdi",
+   "prodotto": "ST100220 Base scatola di derivazione",
+   "tipo": "Produzione",
+   "causa": "",
+   "pezzi": 644
+  },
+  {
+   "id": "demo-0037",
+   "ts": "2026-10-21T16:42:37+01:00",
+   "operatore": "Mario Rossi",
+   "prodotto": "ST100220 Base scatola di derivazione",
+   "tipo": "Fermo",
+   "causa": "F01 Cambio stampo / attrezzaggio",
+   "durataSec": 3600
+  },
+  {
+   "id": "demo-0036",
+   "ts": "2026-10-21T16:42:36+01:00",
+   "operatore": "Mario Rossi",
+   "prodotto": "ST100220 Base scatola di derivazione",
+   "tipo": "Scarto",
+   "causa": "S02 Rottura in estrazione",
+   "pezzi": 2
+  },
+  {
+   "id": "demo-0035",
+   "ts": "2026-10-21T16:42:35+01:00",
+   "operatore": "Mario Rossi",
+   "prodotto": "ST100220 Base scatola di derivazione",
+   "tipo": "Produzione",
+   "causa": "",
+   "pezzi": 739
+  },
+  {
+   "id": "demo-0039",
+   "ts": "2026-10-21T16:33:39+01:00",
+   "operatore": "Laura Bianchi",
+   "prodotto": "PF100200 Quadro in vetroresina 600x400",
+   "tipo": "Scarto",
+   "causa": "S10 Errore di montaggio",
+   "pezzi": 2
+  },
+  {
+   "id": "demo-0038",
+   "ts": "2026-10-21T16:33:38+01:00",
+   "operatore": "Laura Bianchi",
+   "prodotto": "PF100200 Quadro in vetroresina 600x400",
+   "tipo": "Produzione",
+   "causa": "",
+   "pezzi": 34
+  },
+  {
+   "id": "demo-0048",
+   "ts": "2026-10-20T16:52:48+01:00",
+   "operatore": "Luca Verdi",
+   "prodotto": "ST100210 Coperchio scatola di derivazione",
+   "tipo": "Scarto",
+   "causa": "S02 Rottura in estrazione",
+   "pezzi": 12
+  },
+  {
+   "id": "demo-0047",
+   "ts": "2026-10-20T16:52:47+01:00",
+   "operatore": "Luca Verdi",
+   "prodotto": "ST100210 Coperchio scatola di derivazione",
+   "tipo": "Produzione",
+   "causa": "",
+   "pezzi": 821
+  },
+  {
+   "id": "demo-0050",
+   "ts": "2026-10-20T16:46:50+01:00",
+   "operatore": "Sara Neri",
+   "prodotto": "PF100300 Morsettiera di distribuzione",
+   "tipo": "Scarto",
+   "causa": "S10 Errore di montaggio",
+   "pezzi": 3
+  },
+  {
+   "id": "demo-0049",
+   "ts": "2026-10-20T16:46:49+01:00",
+   "operatore": "Sara Neri",
+   "prodotto": "PF100300 Morsettiera di distribuzione",
+   "tipo": "Produzione",
+   "causa": "",
+   "pezzi": 103
+  },
+  {
+   "id": "demo-0046",
+   "ts": "2026-10-20T16:46:46+01:00",
+   "operatore": "Laura Bianchi",
+   "prodotto": "PF100200 Quadro in vetroresina 600x400",
+   "tipo": "Produzione",
+   "causa": "",
+   "pezzi": 30
+  },
+  {
+   "id": "demo-0045",
+   "ts": "2026-10-20T16:45:45+01:00",
+   "operatore": "Mario Rossi",
+   "prodotto": "ST100220 Base scatola di derivazione",
+   "tipo": "Scarto",
+   "causa": "S02 Rottura in estrazione",
+   "pezzi": 6
+  },
+  {
+   "id": "demo-0044",
+   "ts": "2026-10-20T16:45:44+01:00",
+   "operatore": "Mario Rossi",
+   "prodotto": "ST100220 Base scatola di derivazione",
+   "tipo": "Produzione",
+   "causa": "",
+   "pezzi": 717
+  },
+  {
+   "id": "demo-0052",
+   "ts": "2026-10-19T16:55:52+01:00",
+   "operatore": "Mario Rossi",
+   "prodotto": "ST100210 Coperchio scatola di derivazione",
+   "tipo": "Scarto",
+   "causa": "S01 Bave di stampaggio",
+   "pezzi": 5
+  },
+  {
+   "id": "demo-0051",
+   "ts": "2026-10-19T16:55:51+01:00",
+   "operatore": "Mario Rossi",
+   "prodotto": "ST100210 Coperchio scatola di derivazione",
+   "tipo": "Produzione",
+   "causa": "",
+   "pezzi": 739
+  },
+  {
+   "id": "demo-0055",
+   "ts": "2026-10-19T16:53:55+01:00",
+   "operatore": "Laura Bianchi",
+   "prodotto": "PF100300 Morsettiera di distribuzione",
+   "tipo": "Fermo",
+   "causa": "F03 Mancanza materiale",
+   "durataSec": 5400
+  },
+  {
+   "id": "demo-0054",
+   "ts": "2026-10-19T16:53:54+01:00",
+   "operatore": "Laura Bianchi",
+   "prodotto": "PF100300 Morsettiera di distribuzione",
+   "tipo": "Scarto",
+   "causa": "S10 Errore di montaggio",
+   "pezzi": 3
+  },
+  {
+   "id": "demo-0053",
+   "ts": "2026-10-19T16:53:53+01:00",
+   "operatore": "Laura Bianchi",
+   "prodotto": "PF100300 Morsettiera di distribuzione",
+   "tipo": "Produzione",
+   "causa": "",
+   "pezzi": 91
+  },
+  {
+   "id": "demo-0056",
+   "ts": "2026-10-19T16:44:56+01:00",
+   "operatore": "Luca Verdi",
+   "prodotto": "ST100220 Base scatola di derivazione",
+   "tipo": "Produzione",
+   "causa": "",
+   "pezzi": 843
+  },
+  {
+   "id": "demo-0059",
+   "ts": "2026-10-19T16:32:59+01:00",
+   "operatore": "Sara Neri",
+   "prodotto": "PF100300 Morsettiera di distribuzione",
+   "tipo": "Fermo",
+   "causa": "F03 Mancanza materiale",
+   "durataSec": 5400
+  },
+  {
+   "id": "demo-0058",
+   "ts": "2026-10-19T16:32:58+01:00",
+   "operatore": "Sara Neri",
+   "prodotto": "PF100300 Morsettiera di distribuzione",
+   "tipo": "Scarto",
+   "causa": "S10 Errore di montaggio",
+   "pezzi": 3
+  },
+  {
+   "id": "demo-0057",
+   "ts": "2026-10-19T16:32:57+01:00",
+   "operatore": "Sara Neri",
+   "prodotto": "PF100300 Morsettiera di distribuzione",
+   "tipo": "Produzione",
+   "causa": "",
+   "pezzi": 97
+  },
+  {
+   "id": "demo-0063",
+   "ts": "2026-10-16T16:56:03+01:00",
+   "operatore": "Laura Bianchi",
+   "prodotto": "PF100300 Morsettiera di distribuzione",
+   "tipo": "Scarto",
+   "causa": "S10 Errore di montaggio",
+   "pezzi": 3
+  },
+  {
+   "id": "demo-0062",
+   "ts": "2026-10-16T16:56:02+01:00",
+   "operatore": "Laura Bianchi",
+   "prodotto": "PF100300 Morsettiera di distribuzione",
+   "tipo": "Produzione",
+   "causa": "",
+   "pezzi": 115
+  },
+  {
+   "id": "demo-0066",
+   "ts": "2026-10-16T16:54:06+01:00",
+   "operatore": "Sara Neri",
+   "prodotto": "PF100300 Morsettiera di distribuzione",
+   "tipo": "Fermo",
+   "causa": "F01 Cambio stampo / attrezzaggio",
+   "durataSec": 900
+  },
+  {
+   "id": "demo-0065",
+   "ts": "2026-10-16T16:54:05+01:00",
+   "operatore": "Sara Neri",
+   "prodotto": "PF100300 Morsettiera di distribuzione",
+   "tipo": "Produzione",
+   "causa": "",
+   "pezzi": 124
+  },
+  {
+   "id": "demo-0061",
+   "ts": "2026-10-16T16:46:01+01:00",
+   "operatore": "Mario Rossi",
+   "prodotto": "ST100210 Coperchio scatola di derivazione",
+   "tipo": "Scarto",
+   "causa": "S01 Bave di stampaggio",
+   "pezzi": 15
+  },
+  {
+   "id": "demo-0060",
+   "ts": "2026-10-16T16:46:00+01:00",
+   "operatore": "Mario Rossi",
+   "prodotto": "ST100210 Coperchio scatola di derivazione",
+   "tipo": "Produzione",
+   "causa": "",
+   "pezzi": 920
+  },
+  {
+   "id": "demo-0064",
+   "ts": "2026-10-16T16:33:04+01:00",
+   "operatore": "Luca Verdi",
+   "prodotto": "ST100220 Base scatola di derivazione",
+   "tipo": "Produzione",
+   "causa": "",
+   "pezzi": 841
+  },
+  {
+   "id": "demo-0076",
+   "ts": "2026-10-15T16:55:16+01:00",
+   "operatore": "Sara Neri",
+   "prodotto": "PF100200 Quadro in vetroresina 600x400",
+   "tipo": "Fermo",
+   "causa": "F03 Mancanza materiale",
+   "durataSec": 2700
+  },
+  {
+   "id": "demo-0075",
+   "ts": "2026-10-15T16:55:15+01:00",
+   "operatore": "Sara Neri",
+   "prodotto": "PF100200 Quadro in vetroresina 600x400",
+   "tipo": "Scarto",
+   "causa": "S10 Errore di montaggio",
+   "pezzi": 2
+  },
+  {
+   "id": "demo-0074",
+   "ts": "2026-10-15T16:55:14+01:00",
+   "operatore": "Sara Neri",
+   "prodotto": "PF100200 Quadro in vetroresina 600x400",
+   "tipo": "Produzione",
+   "causa": "",
+   "pezzi": 37
+  },
+  {
+   "id": "demo-0068",
+   "ts": "2026-10-15T16:49:08+01:00",
+   "operatore": "Mario Rossi",
+   "prodotto": "ST100210 Coperchio scatola di derivazione",
+   "tipo": "Fermo",
+   "causa": "F03 Mancanza materiale",
+   "durataSec": 3600
+  },
+  {
+   "id": "demo-0067",
+   "ts": "2026-10-15T16:49:07+01:00",
+   "operatore": "Mario Rossi",
+   "prodotto": "ST100210 Coperchio scatola di derivazione",
+   "tipo": "Produzione",
+   "causa": "",
+   "pezzi": 919
+  },
+  {
+   "id": "demo-0073",
+   "ts": "2026-10-15T16:44:13+01:00",
+   "operatore": "Luca Verdi",
+   "prodotto": "ST100210 Coperchio scatola di derivazione",
+   "tipo": "Fermo",
+   "causa": "F02 Guasto macchina",
+   "durataSec": 5400
+  },
+  {
+   "id": "demo-0072",
+   "ts": "2026-10-15T16:44:12+01:00",
+   "operatore": "Luca Verdi",
+   "prodotto": "ST100210 Coperchio scatola di derivazione",
+   "tipo": "Scarto",
+   "causa": "S01 Bave di stampaggio",
+   "pezzi": 2
+  },
+  {
+   "id": "demo-0071",
+   "ts": "2026-10-15T16:44:11+01:00",
+   "operatore": "Luca Verdi",
+   "prodotto": "ST100210 Coperchio scatola di derivazione",
+   "tipo": "Produzione",
+   "causa": "",
+   "pezzi": 941
+  },
+  {
+   "id": "demo-0070",
+   "ts": "2026-10-15T16:35:10+01:00",
+   "operatore": "Laura Bianchi",
+   "prodotto": "PF100300 Morsettiera di distribuzione",
+   "tipo": "Scarto",
+   "causa": "S10 Errore di montaggio",
+   "pezzi": 2
+  },
+  {
+   "id": "demo-0069",
+   "ts": "2026-10-15T16:35:09+01:00",
+   "operatore": "Laura Bianchi",
+   "prodotto": "PF100300 Morsettiera di distribuzione",
+   "tipo": "Produzione",
+   "causa": "",
+   "pezzi": 109
+  },
+  {
+   "id": "demo-0077",
+   "ts": "2026-10-14T16:52:17+01:00",
+   "operatore": "Mario Rossi",
+   "prodotto": "ST100220 Base scatola di derivazione",
+   "tipo": "Produzione",
+   "causa": "",
+   "pezzi": 786
+  },
+  {
+   "id": "demo-0080",
+   "ts": "2026-10-14T16:50:20+01:00",
+   "operatore": "Luca Verdi",
+   "prodotto": "ST100210 Coperchio scatola di derivazione",
+   "tipo": "Fermo",
+   "causa": "F02 Guasto macchina",
+   "durataSec": 5400
+  },
+  {
+   "id": "demo-0079",
+   "ts": "2026-10-14T16:50:19+01:00",
+   "operatore": "Luca Verdi",
+   "prodotto": "ST100210 Coperchio scatola di derivazione",
+   "tipo": "Produzione",
+   "causa": "",
+   "pezzi": 676
+  },
+  {
+   "id": "demo-0081",
+   "ts": "2026-10-14T16:48:21+01:00",
+   "operatore": "Sara Neri",
+   "prodotto": "PF100200 Quadro in vetroresina 600x400",
+   "tipo": "Produzione",
+   "causa": "",
+   "pezzi": 30
+  },
+  {
+   "id": "demo-0078",
+   "ts": "2026-10-14T16:48:18+01:00",
+   "operatore": "Laura Bianchi",
+   "prodotto": "PF100200 Quadro in vetroresina 600x400",
+   "tipo": "Produzione",
+   "causa": "",
+   "pezzi": 31
+  },
+  {
+   "id": "demo-0083",
+   "ts": "2026-10-13T16:56:23+01:00",
+   "operatore": "Mario Rossi",
+   "prodotto": "ST100220 Base scatola di derivazione",
+   "tipo": "Fermo",
+   "causa": "F01 Cambio stampo / attrezzaggio",
+   "durataSec": 2700
+  },
+  {
+   "id": "demo-0082",
+   "ts": "2026-10-13T16:56:22+01:00",
+   "operatore": "Mario Rossi",
+   "prodotto": "ST100220 Base scatola di derivazione",
+   "tipo": "Produzione",
+   "causa": "",
+   "pezzi": 835
+  },
+  {
+   "id": "demo-0085",
+   "ts": "2026-10-13T16:55:25+01:00",
+   "operatore": "Laura Bianchi",
+   "prodotto": "PF100200 Quadro in vetroresina 600x400",
+   "tipo": "Fermo",
+   "causa": "F01 Cambio stampo / attrezzaggio",
+   "durataSec": 3600
+  },
+  {
+   "id": "demo-0084",
+   "ts": "2026-10-13T16:55:24+01:00",
+   "operatore": "Laura Bianchi",
+   "prodotto": "PF100200 Quadro in vetroresina 600x400",
+   "tipo": "Produzione",
+   "causa": "",
+   "pezzi": 31
+  },
+  {
+   "id": "demo-0087",
+   "ts": "2026-10-13T16:50:27+01:00",
+   "operatore": "Luca Verdi",
+   "prodotto": "ST100220 Base scatola di derivazione",
+   "tipo": "Fermo",
+   "causa": "F02 Guasto macchina",
+   "durataSec": 3600
+  },
+  {
+   "id": "demo-0086",
+   "ts": "2026-10-13T16:50:26+01:00",
+   "operatore": "Luca Verdi",
+   "prodotto": "ST100220 Base scatola di derivazione",
+   "tipo": "Produzione",
+   "causa": "",
+   "pezzi": 885
+  },
+  {
+   "id": "demo-0088",
+   "ts": "2026-10-13T16:47:28+01:00",
+   "operatore": "Sara Neri",
+   "prodotto": "PF100300 Morsettiera di distribuzione",
+   "tipo": "Produzione",
+   "causa": "",
+   "pezzi": 123
+  },
+  {
+   "id": "demo-0089",
+   "ts": "2026-10-12T17:00:29+01:00",
+   "operatore": "Mario Rossi",
+   "prodotto": "ST100220 Base scatola di derivazione",
+   "tipo": "Produzione",
+   "causa": "",
+   "pezzi": 780
+  },
+  {
+   "id": "demo-0093",
+   "ts": "2026-10-12T16:52:33+01:00",
+   "operatore": "Luca Verdi",
+   "prodotto": "ST100210 Coperchio scatola di derivazione",
+   "tipo": "Scarto",
+   "causa": "S01 Bave di stampaggio",
+   "pezzi": 12
+  },
+  {
+   "id": "demo-0092",
+   "ts": "2026-10-12T16:52:32+01:00",
+   "operatore": "Luca Verdi",
+   "prodotto": "ST100210 Coperchio scatola di derivazione",
+   "tipo": "Produzione",
+   "causa": "",
+   "pezzi": 756
+  },
+  {
+   "id": "demo-0091",
+   "ts": "2026-10-12T16:44:31+01:00",
+   "operatore": "Laura Bianchi",
+   "prodotto": "PF100200 Quadro in vetroresina 600x400",
+   "tipo": "Scarto",
+   "causa": "S10 Errore di montaggio",
+   "pezzi": 2
+  },
+  {
+   "id": "demo-0090",
+   "ts": "2026-10-12T16:44:30+01:00",
+   "operatore": "Laura Bianchi",
+   "prodotto": "PF100200 Quadro in vetroresina 600x400",
+   "tipo": "Produzione",
+   "causa": "",
+   "pezzi": 31
+  },
+  {
+   "id": "demo-0095",
+   "ts": "2026-10-12T16:39:35+01:00",
+   "operatore": "Sara Neri",
+   "prodotto": "PF100200 Quadro in vetroresina 600x400",
+   "tipo": "Fermo",
+   "causa": "F01 Cambio stampo / attrezzaggio",
+   "durataSec": 3600
+  },
+  {
+   "id": "demo-0094",
+   "ts": "2026-10-12T16:39:34+01:00",
+   "operatore": "Sara Neri",
+   "prodotto": "PF100200 Quadro in vetroresina 600x400",
+   "tipo": "Produzione",
+   "causa": "",
+   "pezzi": 40
+  },
+  {
+   "id": "demo-0104",
+   "ts": "2026-10-09T17:00:44+01:00",
+   "operatore": "Sara Neri",
+   "prodotto": "PF100200 Quadro in vetroresina 600x400",
+   "tipo": "Fermo",
+   "causa": "F02 Guasto macchina",
+   "durataSec": 2700
+  },
+  {
+   "id": "demo-0103",
+   "ts": "2026-10-09T17:00:43+01:00",
+   "operatore": "Sara Neri",
+   "prodotto": "PF100200 Quadro in vetroresina 600x400",
+   "tipo": "Produzione",
+   "causa": "",
+   "pezzi": 39
+  },
+  {
+   "id": "demo-0102",
+   "ts": "2026-10-09T16:53:42+01:00",
+   "operatore": "Luca Verdi",
+   "prodotto": "ST100220 Base scatola di derivazione",
+   "tipo": "Scarto",
+   "causa": "S02 Rottura in estrazione",
+   "pezzi": 10
+  },
+  {
+   "id": "demo-0101",
+   "ts": "2026-10-09T16:53:41+01:00",
+   "operatore": "Luca Verdi",
+   "prodotto": "ST100220 Base scatola di derivazione",
+   "tipo": "Produzione",
+   "causa": "",
+   "pezzi": 642
+  },
+  {
+   "id": "demo-0100",
+   "ts": "2026-10-09T16:41:40+01:00",
+   "operatore": "Laura Bianchi",
+   "prodotto": "PF100300 Morsettiera di distribuzione",
+   "tipo": "Fermo",
+   "causa": "F03 Mancanza materiale",
+   "durataSec": 3600
+  },
+  {
+   "id": "demo-0099",
+   "ts": "2026-10-09T16:41:39+01:00",
+   "operatore": "Laura Bianchi",
+   "prodotto": "PF100300 Morsettiera di distribuzione",
+   "tipo": "Scarto",
+   "causa": "S10 Errore di montaggio",
+   "pezzi": 3
+  },
+  {
+   "id": "demo-0098",
+   "ts": "2026-10-09T16:41:38+01:00",
+   "operatore": "Laura Bianchi",
+   "prodotto": "PF100300 Morsettiera di distribuzione",
+   "tipo": "Produzione",
+   "causa": "",
+   "pezzi": 105
+  },
+  {
+   "id": "demo-0097",
+   "ts": "2026-10-09T16:36:37+01:00",
+   "operatore": "Mario Rossi",
+   "prodotto": "ST100220 Base scatola di derivazione",
+   "tipo": "Fermo",
+   "causa": "F02 Guasto macchina",
+   "durataSec": 5400
+  },
+  {
+   "id": "demo-0096",
+   "ts": "2026-10-09T16:36:36+01:00",
+   "operatore": "Mario Rossi",
+   "prodotto": "ST100220 Base scatola di derivazione",
+   "tipo": "Produzione",
+   "causa": "",
+   "pezzi": 889
+  }
+ ]
+}

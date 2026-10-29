@@ -1,0 +1,2 @@
+html,body{margin:0}@media (max-width: 999px) { .tabs .tabfirst { display: none; } }
+@media (min-width: 1000px) { .tabs .tablbl { align-self: flex-start; padding: 4px 12px 2px; } }

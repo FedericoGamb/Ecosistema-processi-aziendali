@@ -1,0 +1,16 @@
+{
+  "name": "ecosistema-processi-aziendali",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Web app per i processi di un'azienda manifatturiera: produzione, collaudi e seriali, gestione stampi. HTML, CSS e JavaScript senza framework, dati su Supabase.",
+  "type": "module",
+  "scripts": {
+    "config": "node scripts/genera-config.mjs",
+    "dev": "node scripts/genera-config.mjs && npx --yes serve@14 web -l 8080"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "author": "Federico Gambina (https://www.linkedin.com/in/federicogambina/)",
+  "license": "SEE LICENSE IN LICENSE"
+}
